@@ -1,9 +1,11 @@
 from utils import main, Ordonnancement, computeTasksLengthFrom, Position, initialize
 from copy import deepcopy
-"""
-Assignation optimale selon la distance, un seul taxi
-"""
+
 class OrdonnancementPartieUne(Ordonnancement):
+    """
+    Chemin a distance optimale, un seul taxi
+    """
+
     def algo_assign(self):
 
         print("Ordonnancement Partie Une")
@@ -48,8 +50,8 @@ class OrdonnancementPartieUne(Ordonnancement):
                     taxi.tasks = tent_base
                     
 
-
-
+    def __str__(self):
+        return super().__str__() + "Partie Une "
 
 
 def testPartie1():
@@ -72,6 +74,3 @@ def testPartie1():
     for idx, taxi in enumerate(env.taxis):
         print(f"Taxi : {idx} : " + str(taxi.tasks))
         print(f"Distance : " + str(taxi.computeTasksLength()))
-
-
-testPartie1()

@@ -5,6 +5,18 @@ from typing import List, Tuple
 from copy import deepcopy
 from math import sqrt
 
+
+
+
+class Insertion:
+    def __init__(self, index, value):
+        self.index = index
+        self.value = value
+
+    def __repr__(self):
+        return f"Insertion at {self.index} with value {self.value}"
+    
+
 class Position:
     def __init__(self, x : float, y : float):
         self.x = x
@@ -31,14 +43,14 @@ class Task:
 
 class Taxi:
     def __init__(self, position = Position(0, 0)):
-        self.position : position = deepcopy(position)
+        self.position : Position = deepcopy(position)
         self.tasks : List[Task] = []
+        self.id = id(self)
 
     def computeTasksLength(self):
         acc = 0
         taxi_temp_pos = Position(self.position.x, self.position.y)
 
-        #print(f"Taxi tasks : {self.tasks}")
         for t in self.tasks:
             acc += taxi_temp_pos.distanceVers(t.origin)
             acc += t.origin.distanceVers(t.destination)
@@ -47,7 +59,8 @@ class Taxi:
         return acc
 
     def __repr__(self):
-        return f"Taxi at {self.position} with tasks len {self.computeTasksLength()}"
+        #return f"Taxi {self.id}"
+        return f"Taxi at {self.position} with tasks len {self.computeTasksLength()} : {self.tasks}"
 
 
 def computeTasksLengthFrom(starting_position, tasks):
@@ -115,6 +128,7 @@ class RandomGenerator(TaskGenerator):
            t = Task(o, d)
            tasks.append(t)
         
+        return tasks
         self.env.tasks_to_ord = tasks
     
     def __str__(self):
@@ -145,6 +159,9 @@ class Ordonnancement(ABC):
         self.algo_assign()
         self.env.tasks_to_ord = []
 
+    def __str__(self):
+        return "Ordonnancement "
+
 
 """
 Tout assigner au premier taxi
@@ -153,27 +170,53 @@ class OrdonnancementUn(Ordonnancement):
     def algo_assign(self):
         t = self.env.taxis[0]
         t.tasks = self.env.tasks_to_ord
+    
+    def __str__(self):
+        return super().__str__() + " Un"
 
 
 
 
+
+
+def parse_args_default():
+    return 4, 10, 2, "rd", 4, 6
 
 def parse_args():
-    args = sys.argv
+    
 
-    taxis_ct = int(args[1])
-    env_size = int(args[2])
-    task_freq = int(args[3])
-    task_method = args[4]
-    tasks_ct = int(args[5])
-    total_time = int(sys.argv[6])
+    taxis_ct = int(input("Taxi count : "))
+    
+    env_size = int(input("Env size : "))
+    
+    task_freq = int(input("Task freq : "))
+
+    task_method = str(input("Task Method : "))
+
+    tasks_ct = int(input("Task count : "))
+
+    total_time = int(input("Total time : "))
+
+    #args = sys.argv
+    #taxis_ct = int(args[1])
+    #env_size = int(args[2])
+    #task_freq = int(args[3])
+    #task_method = args[4]
+    #tasks_ct = int(args[5])
+    #total_time = int(sys.argv[6])
 
     return taxis_ct, env_size, task_freq, task_method, tasks_ct, total_time
 
-def initialize(taxis_ct, env_size, task_freq, task_method, tasks_ct):
+def initialize(taxis_ct, env_size, task_freq, task_method, tasks_ct, random_taxi_location = False):
     taxis = []
-    for _ in range(taxis_ct):
-        taxis.append(Taxi())
+    
+    if random_taxi_location:
+        for _ in range(taxis_ct):
+            taxis.append(Taxi(Position(randint(0, env_size), randint(0, env_size))))
+
+    else:
+        for _ in range(taxis_ct):
+            taxis.append(Taxi())
 
     env = Environnement(env_size, taxis)
 
@@ -183,23 +226,53 @@ def initialize(taxis_ct, env_size, task_freq, task_method, tasks_ct):
 
 
 
-def main(ord):
 
-    taxis_ct, env_size, task_freq, task_method, tasks_ct, total_time = parse_args()
+def main(ord, taxis_ct, env_size, task_freq, task_method, tasks_ct, total_time):
+
+    #taxis_ct, env_size, task_freq, task_method, tasks_ct, total_time = kwargs
+    
     env, gen = initialize(taxis_ct, env_size, task_freq, task_method, tasks_ct)
     
     ord = ord(env)
-    total_time = int(sys.argv[6])
 
     for timestamp in range(total_time):
         if gen.shouldGenerate(timestamp):
-            gen.generate_tasks()
+            tasks = gen.generate_tasks()
+            env.tasks_to_ord = tasks
 
             ord.ordonnancer()
 
             #for idx, taxi in enumerate(env.taxis):
             #    print(f"Taches taxi {idx} :" + str(taxi.tasks))
 
+
+def compare_main(ord1, ord2, taxis_ct, env_size, task_freq, task_method, tasks_ct, total_time):
+
+    env, gen = initialize(taxis_ct, env_size, task_freq, task_method, tasks_ct, random_taxi_location = True)
+    env2, _ = initialize(taxis_ct, env_size, task_freq, task_method, tasks_ct, random_taxi_location = True)
+
+    ord1 = ord1(env)
+    ord2 = ord2(env2)
+
+    for timestamp in range(total_time):
+        if gen.shouldGenerate(timestamp):
+            tasks = gen.generate_tasks()
+            env.tasks_to_ord = deepcopy(tasks)
+            env2.tasks_to_ord = deepcopy(tasks)
+
+            ord1.ordonnancer()
+            ord2.ordonnancer()
+
+            
+    print(f"\n{ord1}\n")
+
+    for idx, taxi in enumerate(env.taxis):
+        print(f"Taxi {idx} : {taxi}")
+
+    print(f"\n{ord2}\n")
+    
+    for idx, taxi in enumerate(env2.taxis):
+        print(f"Taxi {idx} : {taxi}")
 
 
 #main(ord = OrdonnancementPartieUne)
