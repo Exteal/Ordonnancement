@@ -102,8 +102,6 @@ class OrdonnancementSSIInsertionRegret(OrdonnancementSSIInsertion):
         #print("Ordonnancement SSI Regret")
 
         tasks = deepcopy(self.env.tasks_to_ord)
-
-
         for loop in range(len(self.env.tasks_to_ord)):
 
             #print(f"Loop : {loop}")

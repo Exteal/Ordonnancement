@@ -1,0 +1,92 @@
+name: taxi assignment
+objective: min
+
+
+domains:
+  assignement:
+    values: [1398875825712, 1398875591728, 1398872586384]
+    type: non_semantic
+
+
+variables:
+  task_17_to_20:
+    domain: assignement
+
+  task_78_to_05:
+    domain: assignement
+
+  task_14_to_02:
+    domain: assignement
+
+  task_89_to_66:
+    domain: assignement
+
+  task_92_to_86:
+    domain: assignement
+
+
+
+constraints:
+  task_17_to_20_length:
+    type: intention
+    function: |
+      if task_17_to_20 == 1398875825712:
+        return 16.970562748477143
+
+      if task_17_to_20 == 1398875591728:
+        return 9.071067811865476
+
+      if task_17_to_20 == 1398872586384:
+        return 13.474192049298324
+
+  task_78_to_05_length:
+    type: intention
+    function: |
+      if task_78_to_05 == 1398875825712:
+        return 15.678030854162458
+
+      if task_78_to_05 == 1398875591728:
+        return 13.698535636162127
+
+      if task_78_to_05 == 1398872586384:
+        return 12.714792619456693
+
+  task_14_to_02_length:
+    type: intention
+    function: |
+      if task_14_to_02 == 1398875825712:
+        return 10.298325725798339
+
+      if task_14_to_02 == 1398875591728:
+        return 7.23606797749979
+
+      if task_14_to_02 == 1398872586384:
+        return 7.335087491092574
+
+  task_89_to_66_length:
+    type: intention
+    function: |
+      if task_89_to_66 == 1398875825712:
+        return 12.60555127546399
+
+      if task_89_to_66 == 1398875591728:
+        return 10.60555127546399
+
+      if task_89_to_66 == 1398872586384:
+        return 9.930106595800748
+
+  task_92_to_86_length:
+    type: intention
+    function: |
+      if task_92_to_86 == 1398875825712:
+        return 6.35917360311745
+
+      if task_92_to_86 == 1398875591728:
+        return 14.753251438352311
+
+      if task_92_to_86 == 1398872586384:
+        return 7.28538328578604
+
+
+
+agents: ['ag_0', 'ag_1', 'ag_2', 'ag_3', 'ag_4'] 
