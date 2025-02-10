@@ -4,89 +4,248 @@ objective: min
 
 domains:
   assignement:
-    values: [1398875825712, 1398875591728, 1398872586384]
+    values: [2251136232064, 2251135285104, 2251134779760, 2251096837968]
     type: non_semantic
 
 
 variables:
-  task_17_to_20:
+  task_04_to_67:
     domain: assignement
 
-  task_78_to_05:
+  task_19_to_61:
     domain: assignement
 
-  task_14_to_02:
+  task_11_to_106:
     domain: assignement
 
-  task_89_to_66:
+  task_28_to_17:
     domain: assignement
 
-  task_92_to_86:
+  task_03_to_32:
+    domain: assignement
+
+  task_14_to_81:
+    domain: assignement
+
+  task_97_to_98:
+    domain: assignement
+
+  task_30_to_57:
+    domain: assignement
+
+  task_64_to_910:
+    domain: assignement
+
+  task_79_to_86:
+    domain: assignement
+
+  task_30_to_07:
+    domain: assignement
+
+  task_810_to_910:
+    domain: assignement
+
+  task_51_to_1010:
     domain: assignement
 
 
 
 constraints:
-  task_17_to_20_length:
+  task_04_to_67_length:
     type: intention
     function: |
-      if task_17_to_20 == 1398875825712:
-        return 16.970562748477143
+      if task_04_to_67 == 2251136232064:
+        return 17.478533546768375
 
-      if task_17_to_20 == 1398875591728:
-        return 9.071067811865476
+      if task_04_to_67 == 2251135285104:
+        return 15.763589070636787
 
-      if task_17_to_20 == 1398872586384:
-        return 13.474192049298324
+      if task_04_to_67 == 2251134779760:
+        return 14.770461680797919
 
-  task_78_to_05_length:
+      if task_04_to_67 == 2251096837968:
+        return 11.180339887498949
+
+  task_19_to_61_length:
     type: intention
     function: |
-      if task_78_to_05 == 1398875825712:
+      if task_19_to_61 == 2251136232064:
+        return 22.16190319341446
+
+      if task_19_to_61 == 2251135285104:
+        return 19.4339811320566
+
+      if task_19_to_61 == 2251134779760:
+        return 17.49623888035515
+
+      if task_19_to_61 == 2251096837968:
+        return 10.848194694429699
+
+  task_11_to_106_length:
+    type: intention
+    function: |
+      if task_11_to_106 == 2251136232064:
+        return 19.351015279124418
+
+      if task_11_to_106 == 2251135285104:
+        return 18.541841392222324
+
+      if task_11_to_106 == 2251134779760:
+        return 18.35788788928555
+
+      if task_11_to_106 == 2251096837968:
+        return 17.366697952852476
+
+  task_28_to_17_length:
+    type: intention
+    function: |
+      if task_28_to_17 == 2251136232064:
+        return 12.727922061357857
+
+      if task_28_to_17 == 2251135285104:
+        return 10.016538829415722
+
+      if task_28_to_17 == 2251134779760:
+        return 8.122417494872465
+
+      if task_28_to_17 == 2251096837968:
+        return 1.4142135623730951
+
+  task_03_to_32_length:
+    type: intention
+    function: |
+      if task_03_to_32 == 2251136232064:
+        return 13.60258416907893
+
+      if task_03_to_32 == 2251135285104:
+        return 12.16227766016838
+
+      if task_03_to_32 == 2251134779760:
+        return 11.408488911403701
+
+      if task_03_to_32 == 2251096837968:
+        return 8.547442467302883
+
+  task_14_to_81_length:
+    type: intention
+    function: |
+      if task_14_to_81 == 2251136232064:
+        return 17.464630907660013
+
+      if task_14_to_81 == 2251135285104:
         return 15.678030854162458
 
-      if task_78_to_05 == 1398875591728:
-        return 13.698535636162127
+      if task_14_to_81 == 2251134779760:
+        return 14.686840917729384
 
-      if task_78_to_05 == 1398872586384:
-        return 12.714792619456693
+      if task_14_to_81 == 2251096837968:
+        return 11.73887873148157
 
-  task_14_to_02_length:
+  task_97_to_98_length:
     type: intention
     function: |
-      if task_14_to_02 == 1398875825712:
-        return 10.298325725798339
+      if task_97_to_98 == 2251136232064:
+        return 8.071067811865476
 
-      if task_14_to_02 == 1398875591728:
-        return 7.23606797749979
+      if task_97_to_98 == 2251135285104:
+        return 5.0
 
-      if task_14_to_02 == 1398872586384:
-        return 7.335087491092574
+      if task_97_to_98 == 2251134779760:
+        return 3.23606797749979
 
-  task_89_to_66_length:
+      if task_97_to_98 == 2251096837968:
+        return 8.071067811865476
+
+  task_30_to_57_length:
     type: intention
     function: |
-      if task_89_to_66 == 1398875825712:
-        return 12.60555127546399
+      if task_30_to_57 == 2251136232064:
+        return 14.280109889280517
 
-      if task_89_to_66 == 1398875591728:
-        return 10.60555127546399
+      if task_30_to_57 == 2251135285104:
+        return 13.988313821779887
 
-      if task_89_to_66 == 1398872586384:
-        return 9.930106595800748
+      if task_30_to_57 == 2251134779760:
+        return 14.351177701145993
 
-  task_92_to_86_length:
+      if task_30_to_57 == 2251096837968:
+        return 15.342367637579066
+
+  task_64_to_910_length:
     type: intention
     function: |
-      if task_92_to_86 == 1398875825712:
-        return 6.35917360311745
+      if task_64_to_910 == 2251136232064:
+        return 12.365058181991749
 
-      if task_92_to_86 == 1398875591728:
-        return 14.753251438352311
+      if task_64_to_910 == 2251135285104:
+        return 9.87048159266775
 
-      if task_92_to_86 == 1398872586384:
+      if task_64_to_910 == 2251134779760:
+        return 8.94427190999916
+
+      if task_64_to_910 == 2251096837968:
+        return 12.365058181991749
+
+  task_79_to_86_length:
+    type: intention
+    function: |
+      if task_79_to_86 == 2251136232064:
+        return 12.649110640673518
+
+      if task_79_to_86 == 2251135285104:
+        return 9.486832980505138
+
+      if task_79_to_86 == 2251134779760:
         return 7.28538328578604
 
+      if task_79_to_86 == 2251096837968:
+        return 8.261297173761164
+
+  task_30_to_07_length:
+    type: intention
+    function: |
+      if task_30_to_07 == 2251136232064:
+        return 14.615773105863909
+
+      if task_30_to_07 == 2251135285104:
+        return 14.323977038363278
+
+      if task_30_to_07 == 2251134779760:
+        return 14.686840917729384
+
+      if task_30_to_07 == 2251096837968:
+        return 15.678030854162458
+
+  task_810_to_910_length:
+    type: intention
+    function: |
+      if task_810_to_910 == 2251136232064:
+        return 11.198039027185569
+
+      if task_810_to_910 == 2251135285104:
+        return 8.071067811865476
+
+      if task_810_to_910 == 2251134779760:
+        return 6.0
+
+      if task_810_to_910 == 2251096837968:
+        return 7.324555320336759
+
+  task_51_to_1010_length:
+    type: intention
+    function: |
+      if task_51_to_1010 == 2251136232064:
+        return 15.394649654579785
+
+      if task_51_to_1010 == 2251135285104:
+        return 14.76776609598658
+
+      if task_51_to_1010 == 2251134779760:
+        return 15.295630140987
+
+      if task_51_to_1010 == 2251096837968:
+        return 17.91140324685091
 
 
-agents: ['ag_0', 'ag_1', 'ag_2', 'ag_3', 'ag_4'] 
+
+agents: ['ag_0', 'ag_1', 'ag_2', 'ag_3', 'ag_4', 'ag_5', 'ag_6', 'ag_7', 'ag_8', 'ag_9', 'ag_10', 'ag_11', 'ag_12'] 
